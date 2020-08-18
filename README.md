@@ -4,7 +4,7 @@
 <br><br>
 <h6>To be able to use this application you need insert the Microsoft Azure credential<br>
 The APIs are: <br>Microsoft Azure Bing Custom Search, <br>Microsof Azure Language Understanding (LUIS),
-<br>Microsof Azure QnA maker</h6>
+<br>Microsof Azure QnA maker</h6><br><br>
 <h2>Homepage:</h2><br>
 
 ![Homepage1](ReadmeImages/Homepage.png)
