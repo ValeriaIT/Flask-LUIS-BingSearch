@@ -2,6 +2,9 @@
 <h1>Web application in flask</h1>
 <h2>Web application in flask to use the Azure's APIs Bing Search and LUIS</h2>
 <br><br>
+<h6>To be able to use this application you need insert the Microsoft Azure credential<br>
+The APIs are: <br>Microsoft Azure Bing Custom Search, <br>Microsof Azure Language Understanding (LUIS),
+<br>Microsof Azure QnA maker</h6>
 <h2>Homepage:</h2><br>
 
 ![Homepage1](ReadmeImages/Homepage.png)
