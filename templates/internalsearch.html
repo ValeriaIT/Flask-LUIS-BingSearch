@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        .message1 {background-color: powderblue;}
+        .message2   {color: blue;}
+        .message3    {color: red;}
+        </style>
+    <title>search for Turners info
+    </title>
+  </head>
+  <body>
+
+ 
+    <div class="container">
+      <br>
+      <ul class="nav nav-tabs navbar-light">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="websearch.html">News</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="internalsearch.html">Turners information</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="internaldocument.html">Turners documents</a>
+        </li>
+      </ul>
+      <br><br>
+
+        <h3>search for Turners information</h3>
+
+
+
+        <form  method="POST" autocomplete="off">
+          <span><input name="searchInfo" type="text" value="{{request.form.searchInfo}}" style="width:300px"></span>
+        <span><input class="btn btn-primary" role="button" type=submit value="Submit"></span>
+          </form>
+          {% with searchInfoErrs = get_flashed_messages(category_filter=["searchInfoErr"]) %}
+          {% if searchInfoErrs %}				    
+              {% for messages in searchInfoErrs %}	        				       
+                  <strong style="color:red">{{ messages }}</strong> 
+                  <h6>You can try:
+                    Turners,Efficiency,Bid,Autobid,NZ New or import,<br>
+                    Test drive,Consumer Guarantees Act,<br>
+                    Car value,Inspection<br>
+                    </h6>       				            
+              {% endfor %}
+          {% endif %}
+      {% endwith %}
+        <br> <br>
+
+
+
+          {% with searchTurnersInfos = get_flashed_messages(category_filter=["searchTurnersInfo"]) %}
+          {% if searchTurnersInfos %}				    
+
+          <div style=" align-content: center;">
+            <div style="width: 800px; margin: 20px; align-self: center; border: 1px solid black">
+
+              {% for messages in searchTurnersInfos %}	        				       
+                  <strong> From Turners Definitions:<br></strong> 
+                    {{ messages }}        				            
+                      {% endfor %}
+                  {% endif %}
+              {% endwith %}
+                <br> <br>
+
+
+
+
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+
+                {% for category, message in messages %}
+
+
+                {% if category == "displayUrl" %}
+                <br>
+                <a href="{{ message }}"   style="color: red;" class="{{ category }}" target="_blank">{{ message }}</h4>
+                    {% endif %}
+                {% if category == "snippet" %}
+
+                    <h6 >{{ message }}</h6>
+                    {% endif %}
+                {% if category == "openGraphImage" %}
+                <img src="{{ message }}" alt="no image available" style="width:100px;height:100px;">
+                <br></a>
+                {% endif %}
+
+                {% endfor %}
+        <br><br><br>
+      </div>  
+    </div>
+        {% endif %}
+        {% endwith %}
+
+
+     </body>
+</html>

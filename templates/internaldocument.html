@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        .message1 {background-color: powderblue;}
+        .message2   {color: blue;}
+        .message3    {color: red;}
+        </style>
+    <title>search for Turners info
+    </title>
+  </head>
+  <body>
+    <body>
+
+ 
+        <div class="container">
+          <br>
+          <ul class="nav nav-tabs navbar-light">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="websearch.html">News</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="internalsearch.html">Turners information</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="internaldocument.html">Turners documents</a>
+            </li>
+          </ul>
+          <br><br>
+          
+        <h3>search for Turners documents</h3>
+
+          <form  method="POST" autocomplete="off">
+            <span><input name="internalDoc" type="text" value="{{request.form.internalDoc}}" style="width:300px"></span>
+          <span><input class="btn btn-primary" role="button" type=submit value="Submit"></span>
+            <!-- </form> -->
+
+            {% with internalDocErrs = get_flashed_messages(category_filter=["internalDocErr"]) %}
+            {% if internalDocErrs %}				    
+                {% for messages in internalDocErrs %}	   
+                <br>     				       
+                    <strong style="color:red">{{ messages }}</strong><br>
+                    <h6>You can try:<br>
+                      BuyerTerms<br>
+                      Everyday<br>
+                      MBI<br>
+                      ThirdPartyFireTheft<br>
+                      </h6>    
+                {% endfor %}
+            {% endif %}
+        {% endwith %}          
+        
+
+        {% with internalDocs = get_flashed_messages(category_filter=["internalDoc"]) %}
+        {% if internalDocs %}				    
+            {% for messages in internalDocs %}	 
+            <br>
+            <p>the Name of the document is   </p>    				       
+                <strong style="color:blue">{{ messages }}</strong>    <br><br>    				            
+            {% endfor %}
+            <br>
+            <!-- <form  method="POST" autocomplete="off"> -->
+              <p> click the Email button to send this file in default email</p>
+              <input class="btn btn-primary" role="button" name="sendMail" type=submit value="Email">
+            <!-- </form> -->
+        {% endif %}
+    {% endwith %}       
+
+
+  </form>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>news</title>
+  </head>
+
+  <body> 
+    <div class="container">
+      <br>
+      <ul class="nav nav-tabs navbar-light">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="websearch.html">News</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="internalsearch.html">Turners information</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="internaldocument.html">Turners documents</a>
+        </li>
+      </ul>
+      <br><br>
+      <h3>search for News in car world</h3>
+        <form  method="POST" autocomplete="off">
+          <span><input name="searchTerm" type="text" value="{{request.form.searchTerm }}" style="width:300px"></span>
+          <span><input class="btn btn-primary" role="button" type=submit value="Submit"></span>
+        </form>
+          {% with searchTerms = get_flashed_messages(category_filter=["searchTermErr"]) %}
+            {% if searchTerms %}				    
+              {% for messages in searchTerms %}	        				       
+                  <strong style="color:red">{{ messages }}</strong>        				            
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+        <br> <br>
+
+  <div class="card" style=" margin: 20px; padding: 20pt; ">
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+
+        {% for category, message in messages %}
+          <span> 
+            {% if category == "openGraphImage" %}
+            <img src="{{ message|safe }}" alt="no image available" style="width:100px;height:100px;">          
+            {% endif %}
+          </span>
+          
+          <span>
+            {% if category == "displayUrl" %}        
+            <a href="{{ message }}"   style="color: blue;" class="{{ category }}" target="_blank"><strong>{{ message }}</strong></a>
+          {% endif %}
+          {% if category == "snippet" %}
+              <h6>{{ message }}</h6>
+              <hr>
+          {% endif %}
+        </span>
+        
+        {% endfor %}
+
+      {% endif %}
+    {% endwith %} 
+  </div>
+
+</body>
+</html>
