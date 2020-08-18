@@ -27,6 +27,6 @@ to search information inside documents<br><br></h3>
 ![Search4](ReadmeImages/Luis3.jpg)<br><br>
 <br>
 
-<h3>if the user click the button the file is sent like attached<br><br></h3>
+<h3>if the user click the 'Email' button the file is sent like attached<br><br></h3>
 
 ![Search5](ReadmeImages/mail.jpg)
